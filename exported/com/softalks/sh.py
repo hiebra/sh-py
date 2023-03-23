@@ -68,7 +68,7 @@ def hasPagination():
     return False
 
 def getColumns():
-    int(getString('tput cols'))
+    return int(getString('tput cols'))
     
 tty = getString(f'ps -p {os.getpid()} -o tty=')
 if tty.startswith('tty'):

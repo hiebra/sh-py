@@ -90,7 +90,7 @@ def writeWrapped(content, **parameters):
     if static:
         global columns
     else:
-        columns = getColumns
+        columns = getColumns()
     if wrotten > columns:
         word = '\n' + word
         wrotten = characters

@@ -13,6 +13,12 @@ pipe = None
 
 def getString(*commands, singleton=True):
 
+    if len(commands) == 1:
+        command = commands[0] 
+        if  isinstance(command, str) and '|' in command:
+            commands = [x.strip() for x in command.split('|')]
+            return getString(*commands)
+    
     def encode(command):
         return command.group(1).replace(' ', encodedDelimiter)
 
@@ -56,12 +62,11 @@ def getString(*commands, singleton=True):
             
 def getLines(*commands):
     return getString(*commands, singleton=False)
-
     
-def hasPagination():
+def moreCommandInPlace():
     from os import getppid
     ppid = getppid()
-    siblings = getLines(f'ps -o ppid= -o args -A', f'awk "$1 == {ppid}{{print $2}}"')
+    siblings = getLines(f'ps -o ppid= -o args -A | awk "$1 == {ppid}{{print $2}}"')
     for sibling in siblings:
         if (sibling == 'more' or sibling.startswith('more ')):
             return True

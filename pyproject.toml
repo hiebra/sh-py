@@ -1,9 +1,9 @@
 [project]
-name = "CLI Shell"
-description = "Posix CLI Shell utilities for Python 3"
+name = "com.softalks.sh"
+description = "CLI Shell utilities for Python 3"
 version = "0.0.1"
 authors = [
   {name = "Santiago Ruiz", email= "hiebra@hotmail.com"}
 ]
 [tool.setuptools.packages.find]
-where = ["runnable"]
+where = ["exported"]

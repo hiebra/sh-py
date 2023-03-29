@@ -6,7 +6,7 @@ authors = [
   {name = "Santiago Ruiz", email= "hiebra@hotmail.com"}
 ]
 dependencies = [
-    "com.softalks.debug @ https://github.com/hiebra/rpdb/archive/refs/tags/v0.0.1.zip"
+    'com.softalks.debug >= 1, < 2'
 ]
 [tool.setuptools.packages.find]
 where = ["exported"]
